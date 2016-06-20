@@ -1,6 +1,6 @@
 # stc-replace
 
-Content replace for stc, Support string & Regular Expression
+Content replace for stc, Support string & regular expression
 
 ## Install
 
