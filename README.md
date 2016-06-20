@@ -13,10 +13,17 @@ npm install stc-replace
 ```
 var replace = require('stc-replace');
 
+//string replace
 stc.workflow({
   replace: {plugin: replace, include: [/\.(js|css|html)/, {type: 'tpl'}], options: {
     'xxx.com': 'yyy.com'
   }}
 })
 
+//regular replace
+stc.workflow({
+  replace: {plugin: replace, include: [/\.(js|css|html)/, {type: 'tpl'}], options: [
+    [/www\.(com|cn)/, 'yyy.com']
+  ]}
+})
 ```
