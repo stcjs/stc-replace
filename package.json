@@ -1,0 +1,42 @@
+{
+  "name": "stc-replace",
+  "version": "1.0.0",
+  "description": "Content replace for stc, Support string & regular expression",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "",
+    "test-cov": "",
+    "compile": "babel --presets es2015-loose,stage-1 --plugins transform-runtime src/ --out-dir lib/ --source-maps",
+    "watch-compile": "npm run compile -- --watch",
+    "watch": "npm run watch-compile",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stcjs/stc-replace.git"
+  },
+  "keywords": [
+    "stc",
+    "stcjs",
+    "stc-replace",
+    "replace"
+  ],
+  "author": "lizheming",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stcjs/stc-replace/issues"
+  },
+  "homepage": "https://github.com/stcjs/stc-replace#readme",
+  "dependencies": {
+    "stc-helper": "^1.0.0",
+    "stc-plugin": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.9.1",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015-loose": "^7.0.0",
+    "babel-preset-stage-1": "^6.5.0"
+  }
+}
