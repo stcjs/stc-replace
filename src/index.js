@@ -34,7 +34,6 @@ export default class ReplaceJSPlugin extends Plugin {
     for(let [grep, replace] of options) {
       content = content.replace(grep, replace);
     }
-    console.log(content);
     return {content};
   }
   /**
@@ -48,12 +47,12 @@ export default class ReplaceJSPlugin extends Plugin {
    * use cluster
    */
   static cluster(){
-    return false;
+    return true;
   }
   /**
    * use cache
    */
   static cache(){
-    return false;
+    return true;
   }
 }
