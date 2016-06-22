@@ -2,6 +2,8 @@ import Plugin from 'stc-plugin';
 import {extend} from 'stc-helper';
 //import {isMaster} from 'cluster';
 
+let options;
+
 export default class ReplaceJSPlugin extends Plugin {
   /**
    * parseConfig
@@ -29,7 +31,10 @@ export default class ReplaceJSPlugin extends Plugin {
    * run
    */
   async run() {
-    let options = this.parseConfig(this.options);
+    if( !options ) {
+      options = this.parseConfig(this.options);
+    }
+    
     let content = await this.getContent('utf-8');
     for(let [grep, replace] of options) {
       content = content.replace(grep, replace);
