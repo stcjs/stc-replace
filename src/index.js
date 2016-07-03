@@ -34,7 +34,7 @@ export default class ReplaceJSPlugin extends Plugin {
     if( !options ) {
       options = this.parseConfig(this.options);
     }
-    
+
     let content = await this.getContent('utf-8');
     for(let [grep, replace] of options) {
       content = content.replace(grep, replace);
@@ -52,12 +52,12 @@ export default class ReplaceJSPlugin extends Plugin {
    * use cluster
    */
   static cluster(){
-    return true;
+    return false;
   }
   /**
    * use cache
    */
   static cache(){
-    return true;
+    return false;
   }
 }
