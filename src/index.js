@@ -1,5 +1,5 @@
 import Plugin from 'stc-plugin';
-import {extend} from 'stc-helper';
+import {extend, isString, isArray} from 'stc-helper';
 //import {isMaster} from 'cluster';
 
 let options;
@@ -15,14 +15,14 @@ export default class ReplaceJSPlugin extends Plugin {
    */
   parseConfig(opts) {
     let options = [];
-    if( !Array.isArray(opts) ) {
+    if( !isArray(opts) ) {
       for(let key in opts) {
         options.push([key, opts[key]]);
       }
-    } else if( !Array.isArray(opts[0]) ) {
+    } else if( !isArray(opts[0]) ) {
       options.push( opts.slice(0,2) );
     } else {
-      options = opts.filter( opt => Array.isArray(opt) && opt.length == 2 );
+      options = opts.filter( opt => isArray(opt) && opt.length == 2 );
     }
     return options;
   }
@@ -37,7 +37,11 @@ export default class ReplaceJSPlugin extends Plugin {
 
     let content = await this.getContent('utf-8');
     for(let [grep, replace] of options) {
-      content = content.replace(grep, replace);
+      while(true) {
+        let rcontent = content.replace(grep, replace);
+        if(rcontent === content ) break;
+        content = rcontent;
+      }
     }
     return {content};
   }
