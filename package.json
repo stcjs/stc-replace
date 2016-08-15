@@ -1,6 +1,6 @@
 {
   "name": "stc-replace",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Content replace for stc, Support string & regular expression",
   "main": "lib/index.js",
   "scripts": {
