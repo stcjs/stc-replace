@@ -4,7 +4,7 @@ import {extend, isString, isArray} from 'stc-helper';
 
 let options;
 
-export default class ReplaceJSPlugin extends Plugin {
+export default class ReplacePlugin extends Plugin {
   /**
    * parseConfig
    * {[string]: [replaceString]}
